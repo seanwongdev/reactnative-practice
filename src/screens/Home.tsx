@@ -2,7 +2,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { GlobalStateType, RootStackNavigatorParamsList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import Header from "../Components/Header";
+import Constants from "expo-constants";
 import ChosenTask from "./ChosenTask";
+import Footer from "../Components/Footer";
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackNavigatorParamsList,
@@ -38,6 +40,7 @@ const Home = ({ navigation, GlobalState }: HomeProps) => {
           {"\n"} Loading..
         </Text>
       </View>
+      <Footer />
     </View>
   );
 };

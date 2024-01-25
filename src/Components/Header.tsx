@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
     shadowRadius: 6.27,
     zIndex: 5,
     elevation: 10,
+    paddingHorizontal: 10,
+    borderTopWidth: 2,
+    borderTopColor: "#14141420",
   },
 });
 
