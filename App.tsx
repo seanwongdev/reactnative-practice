@@ -51,9 +51,9 @@ export default function App() {
           {(props) => <Home {...props} GlobalState={GlobalState} />}
         </Stack.Screen>
 
-        <Stack.Screen name="ChosenTask" options={{ headerShown: false }}>
+        {/* <Stack.Screen name="ChosenTask" options={{ headerShown: false }}>
           {(props) => <ChosenTask {...props} GlobalState={GlobalState} />}
-        </Stack.Screen>
+        </Stack.Screen> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
