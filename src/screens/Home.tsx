@@ -37,8 +37,8 @@ const Home = ({ navigation, GlobalState }: HomeProps) => {
         <Text>
           This is Home. The Task is to{" "}
           <Text style={styles.bold}>{todoList[0].task}</Text>
-          {"\n"} Loading..
         </Text>
+        <Text>Loading..</Text>
       </View>
       <Footer />
     </View>
