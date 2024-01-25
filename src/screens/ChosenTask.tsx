@@ -1,11 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
-import { GlobalStateType } from "../../App";
+import { GlobalStateType, RootStackNavigatorParamsList } from "../../App";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type ChosenTaskScreenNavigationProp = NativeStackNavigationProp<
+  RootStackNavigatorParamsList,
+  "ChosenTask"
+>;
 
 interface ChosenTaskProps {
   GlobalState: GlobalStateType;
+  navigation: ChosenTaskScreenNavigationProp;
 }
 
-const ChosenTask = ({ GlobalState }: ChosenTaskProps) => {
+const ChosenTask = ({ navigation, GlobalState }: ChosenTaskProps) => {
   const { todoList } = GlobalState;
   return (
     <View style={styles.screen}>
