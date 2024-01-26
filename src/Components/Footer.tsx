@@ -1,10 +1,22 @@
 import { View, Text, StyleSheet } from "react-native";
-import Constants from "expo-constants";
+import { AntDesign } from "@expo/vector-icons";
+import { HomeScreenNavigationProp } from "../screens/Home";
 
-const Footer = () => {
+interface FooterProps {
+  navigation: HomeScreenNavigationProp;
+}
+
+const Footer = ({ navigation }: FooterProps) => {
   return (
     <View style={styles.footer}>
-      <Text>Footer</Text>
+      <AntDesign
+        name="home"
+        size={40}
+        color="black"
+        onPress={() => {
+          navigation.navigate("Home");
+        }}
+      />
     </View>
   );
 };
@@ -13,6 +25,9 @@ const styles = StyleSheet.create({
   footer: {
     flex: 1,
     width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 10,
     backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {

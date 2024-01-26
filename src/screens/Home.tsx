@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { GlobalStateType, RootStackNavigatorParamsList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import Header from "../Components/Header";
-import Constants from "expo-constants";
+
 import ChosenTask from "./ChosenTask";
 import Footer from "../Components/Footer";
 
-type HomeScreenNavigationProp = NativeStackNavigationProp<
+export type HomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackNavigatorParamsList,
   "Home"
 >;
@@ -34,13 +34,19 @@ const Home = ({ navigation, GlobalState }: HomeProps) => {
     <View style={styles.screen}>
       <Header />
       <View style={styles.body}>
-        <Text>
-          This is Home. The Task is to{" "}
-          <Text style={styles.bold}>{todoList[0].task}</Text>
-        </Text>
-        <Text>Loading..</Text>
+        <View></View>
+        <Text>The list of tasks are:</Text>
+        {todoList.map((item) => {
+          return (
+            <Button
+              color="black"
+              title={`${item.id}. ${item.task}`}
+              onPress={() => handleSelectTask(item.task)}
+            />
+          );
+        })}
       </View>
-      <Footer />
+      <Footer navigation={navigation} />
     </View>
   );
 };
@@ -63,6 +69,7 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: "bold",
   },
+  button: {},
 });
 
 export default Home;

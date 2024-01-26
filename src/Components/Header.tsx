@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "white",
     paddingTop: Constants.statusBarHeight,
+    alignItems: "center",
+    justifyContent: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
