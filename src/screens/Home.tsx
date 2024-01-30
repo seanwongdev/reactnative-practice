@@ -1,4 +1,11 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { GlobalStateType, RootStackNavigatorParamsList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import Header from "../Components/Header";
@@ -16,6 +23,11 @@ interface HomeProps {
   navigation: HomeScreenNavigationProp;
 }
 
+interface ItemProps {
+  id: number;
+  task: string;
+}
+
 const Home = ({ navigation, GlobalState }: HomeProps) => {
   const { todoList, setTodoList, task, setTask, setChosenTask } = GlobalState;
 
@@ -30,22 +42,29 @@ const Home = ({ navigation, GlobalState }: HomeProps) => {
     navigation.navigate("ChosenTask");
   };
 
+  const renderItem = ({ item }: { item: ItemProps }) => {
+    return (
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => handleSelectTask(item.task)}
+      >
+        <Text>
+          {item.id}. {item.task}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.screen}>
       <Header />
       <View style={styles.body}>
-        <View></View>
         <Text>The list of tasks are:</Text>
-        {todoList.map((item) => {
-          return (
-            <Button
-              key={item.id}
-              color="black"
-              title={`${item.id}. ${item.task}`}
-              onPress={() => handleSelectTask(item.task)}
-            />
-          );
-        })}
+        <FlatList
+          data={todoList}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+        />
       </View>
       <Footer navigation={navigation} />
     </View>
@@ -62,6 +81,7 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 8,
+
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
@@ -70,7 +90,21 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: "bold",
   },
-  button: {},
+  button: {
+    padding: 10,
+    margin: 5,
+    borderRadius: 12,
+    backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  },
 });
 
 export default Home;

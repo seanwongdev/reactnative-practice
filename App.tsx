@@ -31,6 +31,7 @@ const Stack = createNativeStackNavigator<RootStackNavigatorParamsList>();
 export default function App() {
   const [todoList, setTodoList] = useState<ToDoList[]>([
     { id: 1, task: "brush teeth" },
+    { id: 2, task: "clean bedsheets" },
   ]);
   const [task, setTask] = useState("");
   const [chosenTask, setChosenTask] = useState("");
