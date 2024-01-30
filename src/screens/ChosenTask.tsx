@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { GlobalStateType, RootStackNavigatorParamsList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 
 type ChosenTaskScreenNavigationProp = NativeStackNavigationProp<
   RootStackNavigatorParamsList,
@@ -17,7 +18,10 @@ const ChosenTask = ({ navigation, GlobalState }: ChosenTaskProps) => {
   const { chosenTask } = GlobalState;
   return (
     <View style={styles.screen}>
-      <Text style={styles.body}>This is the ChosenTask: {chosenTask} </Text>
+      <Header />
+      <View style={styles.body}>
+        <Text>This is the ChosenTask: {chosenTask}</Text>
+      </View>
       <Footer navigation={navigation} />
     </View>
   );

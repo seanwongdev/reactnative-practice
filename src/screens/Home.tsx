@@ -39,6 +39,7 @@ const Home = ({ navigation, GlobalState }: HomeProps) => {
         {todoList.map((item) => {
           return (
             <Button
+              key={item.id}
               color="black"
               title={`${item.id}. ${item.task}`}
               onPress={() => handleSelectTask(item.task)}
