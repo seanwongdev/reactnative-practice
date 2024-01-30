@@ -3,6 +3,7 @@ import {
   FlatList,
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -59,7 +60,17 @@ const Home = ({ navigation, GlobalState }: HomeProps) => {
     <View style={styles.screen}>
       <Header />
       <View style={styles.body}>
-        <Text>The list of tasks are:</Text>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            onChangeText={setTask}
+            value={task}
+            placeholder="Add in your new task here..."
+          />
+          <TouchableOpacity style={styles.submitButton} onPress={handleAddTask}>
+            <Text style={styles.submitText}>Submit</Text>
+          </TouchableOpacity>
+        </View>
         <FlatList
           data={todoList}
           renderItem={renderItem}
@@ -81,10 +92,9 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 8,
-
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#ECECEC",
     width: "100%",
+    paddingTop: 15,
   },
 
   bold: {
@@ -104,6 +114,27 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 5,
+  },
+  inputContainer: {
+    margin: 10,
+  },
+  input: {
+    height: 40,
+    marginBottom: 5,
+    borderWidth: 1,
+    padding: 10,
+  },
+  submitButton: {
+    display: "flex",
+    height: 25,
+    justifyContent: "center",
+    backgroundColor: "black",
+    borderRadius: 15,
+    width: 60,
+  },
+  submitText: {
+    textAlign: "center",
+    color: "white",
   },
 });
 
