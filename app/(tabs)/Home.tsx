@@ -8,13 +8,22 @@ import {
 
 import { useTask } from "../../Context/taskContext";
 import { TodoList } from "../../Context/taskContext";
+import { router } from "expo-router";
 
 export default function Home() {
   const { todoList } = useTask();
 
   const renderItem = ({ item }: { item: TodoList }) => {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={styles.taskLink}
+        onPress={() =>
+          router.push({
+            pathname: "/tasks/[id]",
+            params: { id: item.id },
+          })
+        }
+      >
         <Text>
           {item.id}. {item.task}
         </Text>
@@ -39,5 +48,20 @@ const styles = StyleSheet.create({
 
     alignItems: "center",
     justifyContent: "center",
+  },
+  taskLink: {
+    padding: 10,
+    margin: 5,
+    borderRadius: 12,
+    backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
 });

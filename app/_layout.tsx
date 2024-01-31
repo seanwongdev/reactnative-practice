@@ -6,6 +6,7 @@ const RootLayout = () => {
     <TaskProvider>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="tasks/[id]" options={{ headerShown: false }} />
       </Stack>
     </TaskProvider>
   );

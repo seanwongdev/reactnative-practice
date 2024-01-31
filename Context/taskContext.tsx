@@ -12,10 +12,10 @@ export interface TodoList {
 interface TaskContextType {
   todoList: TodoList[];
   setTodoList: React.Dispatch<React.SetStateAction<TodoList[]>>;
-  // task: string;
-  // setTask: React.Dispatch<React.SetStateAction<string>>;
-  // chosenTask: string;
-  // setChosenTask: React.Dispatch<React.SetStateAction<string>>;
+  task: string;
+  setTask: React.Dispatch<React.SetStateAction<string>>;
+  chosenTask: string;
+  setChosenTask: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const TaskContext = createContext({} as TaskContextType);
@@ -28,11 +28,18 @@ export const TaskProvider = ({ children }: ContextProps) => {
     },
   ]);
 
+  const [task, setTask] = useState("");
+  const [chosenTask, setChosenTask] = useState("");
+
   return (
     <TaskContext.Provider
       value={{
         todoList,
         setTodoList,
+        task,
+        setTask,
+        chosenTask,
+        setChosenTask,
       }}
     >
       {children}
