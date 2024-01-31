@@ -1,10 +1,13 @@
 import { Stack } from "expo-router";
+import { TaskProvider } from "../Context/taskContext";
 
 const RootLayout = () => {
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-    </Stack>
+    <TaskProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
+    </TaskProvider>
   );
 };
 

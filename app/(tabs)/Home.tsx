@@ -1,48 +1,34 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import { useState } from "react";
-import { NavigationContainer, RouteProp } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-interface ToDoList {
-  id: number;
-  task: string;
-}
-
-export interface GlobalStateType {
-  todoList: ToDoList[];
-  setTodoList: React.Dispatch<React.SetStateAction<ToDoList[]>>;
-  task: string;
-  setTask: React.Dispatch<React.SetStateAction<string>>;
-  chosenTask: string;
-  setChosenTask: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export type RootStackNavigatorParamsList = {
-  Home: { GlobalState: GlobalStateType };
-  ChosenTask: { GlobalState: GlobalStateType };
-};
+import { useTask } from "../../Context/taskContext";
+import { TodoList } from "../../Context/taskContext";
 
 export default function Home() {
-  const [todoList, setTodoList] = useState<ToDoList[]>([
-    { id: 1, task: "brush teeth" },
-    { id: 2, task: "clean bedsheets" },
-  ]);
-  const [task, setTask] = useState("");
-  const [chosenTask, setChosenTask] = useState("");
+  const { todoList } = useTask();
 
-  const GlobalState = {
-    todoList,
-    setTodoList,
-    task,
-    setTask,
-    chosenTask,
-    setChosenTask,
+  const renderItem = ({ item }: { item: TodoList }) => {
+    return (
+      <TouchableOpacity>
+        <Text>
+          {item.id}. {item.task}
+        </Text>
+      </TouchableOpacity>
+    );
   };
 
   return (
     <View style={styles.container}>
-      <Text>Todo tasks</Text>
+      <FlatList
+        data={todoList}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+      />
     </View>
   );
 }

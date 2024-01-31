@@ -11,7 +11,7 @@ const AddTask = () => {
   return (
     <View style={styles.container}>
       <TextInput style={styles.textbox} placeholder="Add your task here..." />
-      <View style={styles.buttonContainer}>
+      <View>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
