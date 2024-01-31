@@ -1,11 +1,11 @@
 import { Text, View } from "react-native";
 
-const task = () => {
+const Task = () => {
   return (
     <View>
-      <Text>task</Text>
+      <Text>Task</Text>
     </View>
   );
 };
 
-export default task;
+export default Task;
