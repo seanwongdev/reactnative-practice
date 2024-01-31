@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { HomeScreenNavigationProp } from "../screens/Home";
+import { HomeScreenNavigationProp } from "../../app/(tabs)/Home";
 
 interface FooterProps {
   navigation: HomeScreenNavigationProp;

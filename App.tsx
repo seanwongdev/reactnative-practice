@@ -4,8 +4,8 @@ import { useState } from "react";
 import { NavigationContainer, RouteProp } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Home from "./src/screens/Home";
-import ChosenTask from "./src/screens/ChosenTask";
+import Home from "./app/(tabs)/Home";
+import ChosenTask from "./app/(tabs)/ChosenTask";
 
 interface ToDoList {
   id: number;

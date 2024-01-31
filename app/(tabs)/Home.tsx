@@ -9,10 +9,10 @@ import {
 } from "react-native";
 import { GlobalStateType, RootStackNavigatorParamsList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import Header from "../Components/Header";
+import Header from "../../src/Components/Header";
 
 import ChosenTask from "./ChosenTask";
-import Footer from "../Components/Footer";
+import Footer from "../../src/Components/Footer";
 
 export type HomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackNavigatorParamsList,
