@@ -8,7 +8,7 @@ const ScreenLayout = () => {
       <Tabs.Screen
         name="home"
         options={{
-          headerTitle: "Home",
+          headerTitle: "To-do List",
           title: "Home",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="home" size={size} color={color} />
@@ -16,7 +16,7 @@ const ScreenLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="task"
+        name="addTask"
         options={{
           headerTitle: "Add Task",
           title: "Add Task",
