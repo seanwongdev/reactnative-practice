@@ -6,14 +6,34 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useTask } from "../../Context/taskContext";
 
 const AddTask = () => {
+  const { todoList, setTodoList, task, setTask } = useTask();
+  const newId = todoList.length + 1;
+
+  const handleAddTask = (item: string) => {
+    setTodoList((prev) => [...prev, { id: newId, task: item }]);
+  };
+
   return (
     <View style={styles.container}>
-      <TextInput style={styles.textbox} placeholder="Add your task here..." />
+      <TextInput
+        style={styles.textbox}
+        placeholder="Add your task here..."
+        onChangeText={setTask}
+        value={task}
+      />
       <View>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Submit</Text>
+          <Text
+            style={styles.buttonText}
+            onPress={() => {
+              handleAddTask(task);
+            }}
+          >
+            Submit
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
