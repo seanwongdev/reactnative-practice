@@ -1,19 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Redirect } from "expo-router";
 
-const Index = () => {
-  return (
-    <View style={styles.screen}>
-      <Text>index page</Text>
-    </View>
-  );
+const StartPage = () => {
+  return <Redirect href="/home" />;
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
-
-export default Index;
+export default StartPage;

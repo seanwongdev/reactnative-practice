@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 import { GlobalStateType, RootStackNavigatorParamsList } from "../../App";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import Footer from "../../src/Components/Footer";
-import Header from "../../src/Components/Header";
+import Footer from "./Footer";
+import Header from "./Header";
 
 type ChosenTaskScreenNavigationProp = NativeStackNavigationProp<
   RootStackNavigatorParamsList,
