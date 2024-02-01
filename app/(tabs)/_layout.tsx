@@ -29,7 +29,7 @@ const ScreenLayout = () => {
       <Tabs.Screen
         name="tasks/[id]"
         options={{
-          headerTitle: "Task",
+          href: null,
         }}
       />
     </Tabs>
