@@ -6,8 +6,8 @@ import {
   View,
 } from "react-native";
 
-import { useTask } from "../../Context/taskContext";
-import { TodoList } from "../../Context/taskContext";
+import { useTask, TodoList } from "../../Context/taskContext";
+
 import { router } from "expo-router";
 
 export default function Home() {
